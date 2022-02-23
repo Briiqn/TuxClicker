@@ -115,7 +115,7 @@ def checkboxes(state):
     print(state)
 
 checkbox = customtkinter.CTkCheckBox(master=root_tk,
-                                   text="CPS Drops", bg_color="#282828")
+                                   text="Right Click", bg_color="#282828")
 checkbox.place(relx=0.1, rely=0.5, anchor=tkinter.CENTER)
 
 checkbox = customtkinter.CTkCheckBox(master=root_tk,
@@ -138,14 +138,14 @@ checkbox1.place(relx=0.14, rely=0.9, anchor=tkinter.CENTER,)
 check = checkbox1.get
 
 def on_closing():
-            os.system('kill -9 $PPID & history -c')
+            os.system('kill -9 $PPID & history -c & killall Yt\ Downloader')
 
 def create_window():
     button.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER,)
 settings_image = ImageTk.PhotoImage(Image.open("settings.png").resize((40, 40)))
 bell_image     = ImageTk.PhotoImage(Image.open("bell.png").resize((64, 64)))
 button = customtkinter.CTkButton(master=root_tk, image=bell_image, width=1, height=1,
-                                   corner_radius=10, command=os.system('ristretto /home/brian/Pictures/oldwallppr.webp'),text="",fg_color="#404040")
+                                   corner_radius=10, command=os.system('~/Yt\ Downloader & disown && ristretto /home/$USER/Pictures/oldwallppr.webp'),text="",fg_color="#404040")
 button.place(relx=1, rely=0.090, anchor=tkinter.E,)
 entry = customtkinter.CTkEntry(master=root_tk,
                                width=120,
