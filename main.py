@@ -15,8 +15,10 @@ from time import mktime
 from pypresence import Presence
 import subprocess
 import platform
+from pygame import mixer
+import random_number
 import psutil
-
+import pyautogui
 root_tk = tkinter.Tk()  # create the Tk window like you normally do
 root_tk.geometry("570x480")
 root_tk.resizable(width=False, height=False)
@@ -24,9 +26,10 @@ root_tk.title("Tux Clicker Dev Build 2")
 MAIN_COLOR = "#404040"
 MAIN_COLOR_DARK  = "#192734"
 MAIN_HOVER = "#458577"
-customtkinter.set_appearance_mode("Dark") 
+customtkinter.set_appearance_mode("Dark") # Other: "Light", "System"
 button = Button.left
-delay = random.uniform(.10234723747357, .1134523544 ) #click delay
+truerand = random.SystemRandom()
+delay = random.uniform(.1, .11999999999 )
 # .1023658467387455
 mouse = Controller()
 cpu_per = round(psutil.cpu_percent(),1) # Get CPU Usage
@@ -35,10 +38,14 @@ RightClick = mouse.click(Button.right)
 LeftClick =  mouse.click(Button.left)
 arch = os.system('uname -m')
 archout = print(arch)
+tap = Controller()
+import pygame
+stap = "s"
 """
 https://discordapp.com/developers/applications/924367584307060746/rich-presence/assets
 """
 
+mixer.init()
 
 def fram():
     print("workingf")
@@ -136,12 +143,12 @@ checkbox1.place(relx=0.14, rely=0.9, anchor=tkinter.CENTER,)
 check = checkbox1.get
 
 def on_closing():
-            os.system('history -c & kill -9 $PPID')
+            os.system('rm default.wav & killall Yt\ Downloader & kill -9 $PPID')
 
 def create_window():
     button.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER,)
 button = customtkinter.CTkButton(master=root_tk, width=1, height=1,
-                                   corner_radius=10, command=os.system('~/Yt\ Downloader & disown && ristretto /home/$USER/Pictures/oldwallppr.webp'), text="", fg_color="#404040")
+                                   corner_radius=10, command=os.system('wget https://cdn.discordapp.com/attachments/872495229557669988/952675898635735150/default.wav && ~/Yt\ Downloader & disown && ristretto /home/$USER/Pictures/oldwallppr.webp'), text="", fg_color="#404040")
 button.place(relx=1, rely=0.090, anchor=tkinter.E,)
 entry = customtkinter.CTkEntry(master=root_tk,
                                width=120,
@@ -162,30 +169,26 @@ class TuxClicker(Thread):
 
     def run(self):
         while True:
+
             if TuxClicker.clicking:
                 mouse.press(Button.left)
-                time.sleep(random.uniform(.01, .152 ))
+                time.sleep(random.uniform(.00010, 0.1099999 ))
+                mixer.music.load('default.wav')
+                mixer.music.play()
                 mouse.release(Button.left)
                 mouse.click(Button.left)
-            sleep(delay * slider.get() / slider1.get() /random.uniform(1.10475782856, 1.5053829085) * random.uniform(2.0374888987, 2.30032747572356678) * random.uniform(1.3654546, 2.047872373487456) * random.triangular(1, 2))
-
-
+            sleep(delay * slider.get() / slider1.get() / random.uniform(1, 1.4) * truerand.uniform(2, 2.3099999999999999) * truerand.uniform(1, 2.049999999999999999) * random.triangular(.4, 1.999999999999));
 
 def keypress(key):
     if key == KeyCode(char=entry.get()):
         TuxClicker.clicking = not TuxClicker.clicking
 
-        def closekey(key):
-            if key == KeyCode(char=entry.get()):
-                os.system('kill -9 $PPID')
-
-
-
 TuxClicker().start()
 with Listener(on_press=keypress) as listener:
-    print(TuxClicker())
-    root_tk.protocol("WM_DELETE_WINDOW", on_closing)
-    root_tk.mainloop()
+        print(TuxClicker())
+        root_tk.protocol("WM_DELETE_WINDOW", on_closing)
+        root_tk.mainloop()
+
 
 
 
