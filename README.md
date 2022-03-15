@@ -43,7 +43,7 @@ Then run the clicker and it should display that image you just downloaded
 Now run Lunar Client and the clicker should open
 _________________________________
 # HoW Do I Ss ByPaSs???
-copy and rename the python executable in /usr/bin
+copy and rename the python/python3 executable in /usr/bin/
 
 rename the autoclicker file
 
