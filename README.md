@@ -3,11 +3,17 @@
 This clicker is different from tranditional clickers as the sliders are weird, also there is little customizability but soon i'll add configs and themes.
 
 This clicker bypasses the servers below
+
 hypixel.net  <30 cps
+
 cavepvp.org  <18 cps
+
 ghostly.live <20 cps
+
 minemen.club <16 cps
+
 any servers running karhu <16 cps
+
 ncp, matrix, aac, <23 cps
 ______________________________
 Dependencies
