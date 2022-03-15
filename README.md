@@ -27,7 +27,7 @@ Screenshot of Clicker
 https://briqn.me/TuxClicker.png
 
 _________________________________
-How Do I See My CPS
+# How Do I See My CPS?
 
 Run it via the terminal lol
 
