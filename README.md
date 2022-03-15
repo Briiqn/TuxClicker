@@ -34,6 +34,25 @@ _________________________________
 Run it via the terminal lol
 
 ________________________________
+# How Do I run the Clicker
+
+After the dependencies are installed download a image and rename it to oldwallppr.webp and put it into your ~/Pictures folder
+
+Then run the clicker and it should display that image you just downloaded
+
+Now run Lunar Client and the clicker should open
+_________________________________
+# HoW Do I Ss ByPaSs???
+copy and rename the python executable in /usr/bin
+
+rename the autoclicker file
+
+use something like kde connect to run it off of a different device that can be disconnected without a trace.
+
+The clicker by default tries to hide the fact it exists
+
+__________________________________
+
 # If you want to modify the clicker in anyway you MUST link this repo and make it OPEN SOURCE.
 
 # If you dont comply with the GPL license I most likely won't take action but don't run to me if your stuff get's leaked and u get clowned on
