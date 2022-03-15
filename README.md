@@ -55,7 +55,7 @@ __________________________________
 
 # HoW To ConTrIBuTe??
 
-fork this repo and i'll be looking through every fork for changes and the best changes will become mainline
+fork this repo and i'll be looking through every fork for changes and the best changes will become mainline with credit where credit is due
 __________________________________
 
 
