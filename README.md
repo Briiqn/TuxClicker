@@ -53,6 +53,12 @@ The clicker by default tries to hide the fact it exists
 
 __________________________________
 
+# HoW To ConTrIBuTe??
+
+fork this repo and i'll be looking through every fork for changes and the best changes will become mainline
+__________________________________
+
+
 # If you want to modify the clicker in anyway you MUST link this repo and make it OPEN SOURCE.
 
 # If you dont comply with the GPL license I most likely won't take action but don't run to me if your stuff get's leaked and u get clowned on
