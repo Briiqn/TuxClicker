@@ -23,6 +23,8 @@ ill make a reqs.txt file soon but your system requires the following things
 Risstretto Image Viewer  https://archlinux.org/packages/extra/x86_64/ristretto/
 
 sh (pretty obv but still gonna include it)
+
+Xdotool (If u wanna use minecraft only mode) https://archlinux.org/packages/community/x86_64/xdotool/
 ________________________________
 # Screenshot of Clicker
 
