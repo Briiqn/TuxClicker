@@ -61,4 +61,4 @@ __________________________________
 
 # If you want to modify the clicker in anyway you MUST link this repo and make it OPEN SOURCE.
 
-# If you dont comply with the GPL license I most likely won't take action but don't run to me if your stuff get's leaked and u get clowned on
+# If you dont comply with the GPL license I most likely won't take action but don't run to me if your skid get's leaked and u get clowned on
