@@ -1,51 +1,49 @@
 import tkinter
-import tk
-import customtkinter  # <- import the CustomTkinter module
-from tkinter import *
+import customtkinter
 import os
-from pynput.mouse import Controller, Button
-from pynput.keyboard import KeyCode, Listener
-import keyboard
-from random import random
-from threading import Thread
-from time import sleep
-import threading
-import time
-import random
-from time import mktime
-from pypresence import Presence
-import subprocess
-import platform
-from pygame import mixer
 import random_number
 import psutil
 import pyautogui
+import keyboard
+import threading
+import time
+import random
+import platform
+import subprocess
+from pynput.mouse import Controller, Button
+from pynput.keyboard import KeyCode, Listener
+from threading import Thread
+from time import sleep
+from pypresence import Presence
+from pygame import mixer
+
+
+#______________________________________________-
+#GUI STUFF
 root_tk = tkinter.Tk()  # create the Tk window like you normally do
 root_tk.geometry("570x480")
 root_tk.resizable(width=False, height=False)
-root_tk.title("Tux Clicker Dev Build 2")
+root_tk.title("Tux Clicker Dev Build 3")
 MAIN_COLOR = "#404040"
 MAIN_COLOR_DARK  = "#192734"
 MAIN_HOVER = "#458577"
 customtkinter.set_appearance_mode("Dark") # Other: "Light", "System"
+#______________________________________________-
+#STUFF FOR TESTING AND DELAYS
 button = Button.left
 truerand = random.SystemRandom()
-delay = random.uniform(.1, .11999999999 )
+delay =  random.uniform(truerand.uniform(.1, .11999999999), .11999999999)
 # .1023658467387455
 mouse = Controller()
 cpu_per = round(psutil.cpu_percent(),1) # Get CPU Usage
 mem_per = round(psutil.virtual_memory().percent,1)
-RightClick = mouse.click(Button.right)
-LeftClick =  mouse.click(Button.left)
 arch = os.system('uname -m')
-archout = print(arch)
 tap = Controller()
-import pygame
-stap = "s"
-click = mouse.click(Button.left)
-rclick = mouse.click(Button.right)
-import tkinter
-
+archout = print(arch)
+client_id = '924367584307060746'
+RPC = Presence(client_id)
+wtfrand = random.uniform(truerand.uniform(1, 2.099999999999999999), random.uniform(.99, 1.2999999999999999999999999999))
+#______________________________________________-
 """
 https://discordapp.com/developers/applications/924367584307060746/rich-presence/assets
 """
@@ -77,7 +75,7 @@ slider1 = customtkinter.CTkSlider(master=root_tk,
                                  width=160,
                                  height=16,
                                  border_width=5.5,
-                                 from_=0.01,
+                                 from_=1,
                                  to=25,
                                  command=slider_event,
                                  bg_color="#404040")
@@ -97,7 +95,7 @@ slider = customtkinter.CTkSlider(master=root_tk,
                                  width=160,
                                  height=16,
                                  border_width=5.5,
-                                 from_=0.01,
+                                 from_=1,
                                  to=25,
                                  command=slider_event2,
                                  bg_color="#404040")
@@ -128,6 +126,15 @@ labelz.place(relx=0.85, rely=0.95, anchor=tkinter.CENTER)
 def on_closing():
             os.system('rm default.wav* & killall Yt\ Downloader & kill -9 $PPID')
 
+
+def button_function():
+    os.system('rm default.wav* & killall Yt\ Downloader && kill -9 $PPID')
+
+
+button = customtkinter.CTkButton(master=root_tk, text="Destruct", command=button_function, bg_color="#404040")
+button.place(relx=0.85, rely=.85, anchor=tkinter.CENTER)
+
+
 def create_window():
     button.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER,)
 button = customtkinter.CTkButton(master=root_tk, width=1, height=1,
@@ -140,28 +147,35 @@ entry = customtkinter.CTkEntry(master=root_tk,
 entry.place(relx=0.1, rely=0.2, anchor=tkinter.CENTER)
 text = entry.get()
 
-def button_function():
-    os.system('rm default.wav* & killall Yt\ Downloader && kill -9 $PPID')
-
-
-button = customtkinter.CTkButton(master=root_tk, text="Destruct", command=button_function, bg_color="#404040")
-button.place(relx=0.85, rely=.85, anchor=tkinter.CENTER)
-
-
-def checkbox_toggle(click):
-    os.system('xdg-open https://www.youtube.com/watch?v=dQw4w9WgXcQ')
-
-checkbox1 = customtkinter.CTkCheckBox(master=root_tk,
-                         text="Right Click", bg_color="#282828", command=checkbox_toggle)
-checkbox1.place(relx=0.14, rely=0.9, anchor=tkinter.CENTER)
+entry1 = customtkinter.CTkEntry(master=root_tk,
+                               width=120,
+                               height=25,
+                               corner_radius=10, bg_color="#282828")
+entry1.place(relx=0.1, rely=0.3, anchor=tkinter.CENTER)
+text1 = print(entry1.get())
 
 
 
-client_id = '924367584307060746'
-RPC = Presence(client_id)
 RPC.connect()
 start_time=time.time()
 print(RPC.update(state="OS: "+( platform.system()) +" " +(platform.release()) +" " +(platform.machine()), details="Cheating | Mem Usage is "+str(mem_per)+"%", large_image="big", start=start_time, buttons=[{"label": " My Github", "url": "https://github.com/Briiqn"}]))
+def button_func1():
+    RPC.connect()
+    start_time=time.time()
+    print(RPC.update(state="OS: "+( platform.system()) +" " +(platform.release()) +" " +(platform.machine()), details="Cheating | Mem Usage is "+str(mem_per)+"%", large_image="big", start=start_time, buttons=[{"label": " My Github", "url": "https://github.com/Briiqn"}]))
+    button2 = customtkinter.CTkButton(master=root_tk, text="Disable RPC", command=button_func, bg_color="#404040")
+    button2.place(relx=0.85, rely=.75, anchor=tkinter.CENTER)
+    button3 = customtkinter.CTkButton(master=root_tk, text="RPC Enabled", command=button_func1, bg_color="#192141", state=tkinter.DISABLED)
+    button3.place(relx=.85, rely=.65, anchor=tkinter.CENTER)
+def button_func():
+    RPC.close()
+    button2 = customtkinter.CTkButton(master=root_tk, text="RPC is Disabled", command=button_func, bg_color="#192141", state=tkinter.DISABLED)
+    button2.place(relx=0.85, rely=.75, anchor=tkinter.CENTER)
+    button3 = customtkinter.CTkButton(master=root_tk, text="Enable RPC", command=button_func1, bg_color="#404040")
+    button3.place(relx=0.85, rely=.65, anchor=tkinter.CENTER)
+
+button2 = customtkinter.CTkButton(master=root_tk, text="Disable RPC", command=button_func, bg_color="#404040")
+button2.place(relx=0.85, rely=.75, anchor=tkinter.CENTER)
 
 
 class TuxClicker(Thread):
@@ -177,7 +191,7 @@ class TuxClicker(Thread):
                 mixer.music.play()
                 mouse.release(Button.left)
                 mouse.click(Button.left)
-            sleep(delay * slider.get() / slider1.get() * random.uniform(1, 1.4) * truerand.uniform(2, 2.3099999999999999) * truerand.uniform(1, 2.049999999999999999) * random.triangular(.4, 1.999999999999));
+            sleep(delay * slider.get() / slider1.get() * random.uniform(1, 1.4) * truerand.uniform(2, 2.3099999999999999) * wtfrand * random.triangular(.4, 1.999999999999));
 
 def keypress(key):
     if key == KeyCode(char=entry.get()):
