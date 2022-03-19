@@ -2,7 +2,7 @@
 ppid=$(pidof Risstretto\ Image\ Viewer)
 #You can change the "Risstretto\ Image\ Viewer" to any python3 or renamed python3 application in /usr/bin/
 build="fc86f27"
-if [ "$(xdotool getactivewindow getwindowname)" == "Tux Clicker Dev Build 1" ]; then
+if [ "$(xdotool getactivewindow getwindowname)" == "Tux Clicker Dev Build 3" ]; then
 kill -CONT $ppid
 exec "$0" "$@"
 elif [ "$(xdotool getactivewindow getwindowname)" == "Lunar Client (1.8.9-"$build"/master)" ]; then
