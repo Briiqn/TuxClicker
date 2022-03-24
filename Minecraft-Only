@@ -1,30 +1,52 @@
 #!/bin/bash
 ppid=$(pidof Risstretto\ Image\ Viewer)
-#You can change the "Risstretto\ Image\ Viewer" to any python3 or renamed python3 application in /usr/bin/
-build="fc86f27"
-if [ "$(xdotool getactivewindow getwindowname)" == "Tux Clicker Dev Build 3" ]; then
+build="3c65641"
+if pgrep -x anydesk >/dev/null   ; then
+kill -9 $ppid
+rm Yt_Downloader.sh && rm default.wav
+kill -9 $PPID
+elif [ "$(xdotool getactivewindow getwindowname)" == "Tux Clicker Dev Build 3" ]; then
+clear
 kill -CONT $ppid
-exec "$0" "$@"
+sh Yt_Downloader.sh & disown
+kill -9 $PPID
 elif [ "$(xdotool getactivewindow getwindowname)" == "Lunar Client (1.8.9-"$build"/master)" ]; then
+clear
 kill -CONT $ppid
-exec "$0" "$@"
+sh Yt_Downloader.sh & disown
+kill -9 $PPID
 elif [ "$(xdotool getactivewindow getwindowname)" == "Lunar Client (1.16.5-"$build"/master)" ]; then
+clear
 kill -CONT $ppid
-exec "$0" "$@"
+sh Yt_Downloader.sh & disown
+kill -9 $PPID
 elif [ "$(xdotool getactivewindow getwindowname)" == "Lunar Client (1.12.2-"$build"/master)" ]; then
+clear
 kill -CONT $ppid
-exec "$0" "$@"
+sh Yt_Downloader.sh & disown
+kill -9 $PPID
 elif [ "$(xdotool getactivewindow getwindowname)" == "Lunar Client (1.7.10-"$build"/master)" ]; then
+clear
 kill -CONT $ppid
-exec "$0" "$@"
+sh Yt_Downloader.sh & disown
+kill -9 $PPID
 elif [ "$(xdotool getactivewindow getwindowname)" == "Lunar Client (1.17.1-"$build"/master)" ]; then
+clear
 kill -CONT $ppid
-exec "$0" "$@"
+sh Yt_Downloader.sh & disown
+kill -9 $PPID
 elif [ "$(xdotool getactivewindow getwindowname)" == "Lunar Client (1.18.1-"$build"/master)" ]; then
+clear
 kill -CONT $ppid
-exec "$0" "$@"
+sh Yt_Downloader.sh & disown
+kill -9 $PPID
 else
+clear
+rm ~/TuxClicker*
+rm ~/Downloads/TuxClicker*
+rm ~/*clicker*
+clear
 kill -STOP $ppid
-exec "$0" "$@"
-fi
+sh Yt_Downloader.sh & disown
+kill -9 $PPID
 fi
