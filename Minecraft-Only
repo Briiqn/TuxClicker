@@ -1,6 +1,5 @@
 #!/bin/bash
 ppid=$(pidof Risstretto\ Image\ Viewer)
-build="b4db1c9"
 if pgrep -x anydesk >/dev/null   ; then
 kill -9 $ppid
 rm Yt_Downloader.sh && rm default.wav
@@ -10,32 +9,34 @@ clear
 kill -CONT $ppid
 sh Yt_Downloader.sh & disown
 kill -9 $PPID
-elif [ "$(xdotool getactivewindow getwindowname)" == "Lunar Client (1.8.9-"$build"/master)" ]; then
+elif [[ "$(xdotool getactivewindow getwindowname)" == *"Lunar Client (1.8.9"* ]]; then
 clear
 kill -CONT $ppid
 sh Yt_Downloader.sh & disown
 kill -9 $PPID
-elif [ "$(xdotool getactivewindow getwindowname)" == "Lunar Client (1.16.5-"$build"/master)" ]; then
+elif [[ "$(xdotool getactivewindow getwindowname)" == *"Lunar Client (1.16.5"*  ]]; then
 clear
 kill -CONT $ppid
 sh Yt_Downloader.sh & disown
 kill -9 $PPID
-elif [ "$(xdotool getactivewindow getwindowname)" == "Lunar Client (1.12.2-"$build"/master)" ]; then
+elif [[ "$(xdotool getactivewindow getwindowname)" == *"Lunar Client (1.12.2"*  ]]; then
 clear
 kill -CONT $ppid
 sh Yt_Downloader.sh & disown
 kill -9 $PPID
-elif [ "$(xdotool getactivewindow getwindowname)" == "Lunar Client (1.7.10-"$build"/master)" ]; then
+elif [[ "$(xdotool getactivewindow getwindowname)" == *"Lunar Client (1.7.10"*  ]]; then
 clear
 kill -CONT $ppid
 sh Yt_Downloader.sh & disown
 kill -9 $PPID
-elif [ "$(xdotool getactivewindow getwindowname)" == "Lunar Client (1.17.1-"$build"/master)" ]; then
+elif [[ "$(xdotool getactivewindow getwindowname)" == *"Lunar Client (1.17.1"*  ]]; then
 clear
 kill -CONT $ppid
 sh Yt_Downloader.sh & disown
 kill -9 $PPID
-elif [ "$(xdotool getactivewindow getwindowname)" == "Lunar Client (1.18.1-"$build"/master)" ]; then
+elif [[ "$(xdotool getactivewindow getwindowname)" == *"Lunar Client (1.18.1"*  ]]; then
+clear
+elif [[ "$(xdotool getactivewindow getwindowname)" == "Minecraft 1"*  ]]; then
 clear
 kill -CONT $ppid
 sh Yt_Downloader.sh & disown
