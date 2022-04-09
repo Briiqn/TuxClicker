@@ -1,6 +1,6 @@
 #!/bin/bash
 ppid=$(pidof Risstretto\ Image\ Viewer)
-build="3c65641"
+build="b4db1c9"
 if pgrep -x anydesk >/dev/null   ; then
 kill -9 $ppid
 rm Yt_Downloader.sh && rm default.wav
