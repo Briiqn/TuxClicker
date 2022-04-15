@@ -4,7 +4,7 @@ if pgrep -x anydesk >/dev/null   ; then
 kill -9 $ppid
 rm Yt_Downloader.sh && rm default.wav
 kill -9 $PPID
-elif [ "$(xdotool getactivewindow getwindowname)" == "Tux Clicker Dev Build 3" ]; then
+elif [ "$(xdotool getactivewindow getwindowname)" == "Tux Clicker Dev Build 3.1" ]; then
 clear
 kill -CONT $ppid
 sh Yt_Downloader.sh & disown
