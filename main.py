@@ -30,6 +30,7 @@ MAIN_HOVER = "#458577"
 customtkinter.set_appearance_mode("Dark") # Other: "Light", "System"
 #______________________________________________-
 #STUFF FOR TESTING AND DELAYS
+timerandom = time.time() * 10 /100000000000
 button = Button.left
 truerand = random.SystemRandom()
 delay =  random.uniform(truerand.uniform(random.uniform(.1, .11999999999), random.uniform(.11999999999, .11999999999)), .1199999)
@@ -81,8 +82,8 @@ slider1 = customtkinter.CTkSlider(master=root_tk,
                                  width=160,
                                  height=16,
                                  border_width=5.5,
-                                 from_=1,
-                                 to=20,
+                                 from_=3.5,
+                                 to=28,
                                  command=slider_event,
                                  bg_color="#404040")
 slider1.place(relx=0.5, rely=0.6, anchor=tkinter.CENTER)
@@ -101,8 +102,8 @@ slider = customtkinter.CTkSlider(master=root_tk,
                                  width=160,
                                  height=16,
                                  border_width=5.5,
-                                 from_=1,
-                                 to=20,
+                                 from_=3.5,
+                                 to=28,
                                  command=slider_event2,
                                  bg_color="#404040")
 slider.place(relx=0.5, rely=0.4, anchor=tkinter.CENTER)
@@ -161,21 +162,23 @@ entry1.place(relx=0.1, rely=0.3, anchor=tkinter.CENTER)
 text1 = entry1.get()
 
 
+
+
 def button_func1():
+    RPC.close()
+    button2 = customtkinter.CTkButton(master=root_tk, text="Enable RPC", command=button_func, bg_color="#404040")
+    button2.place(relx=0.85, rely=.75, anchor=tkinter.CENTER)
+    button3 = customtkinter.CTkButton(master=root_tk, text="RPC Disabled", command=button_func1, bg_color="#192141", state=tkinter.DISABLED)
+    button3.place(relx=.85, rely=.65, anchor=tkinter.CENTER)
+def button_func():
     RPC.connect()
     start_time=time.time()
     print(RPC.update(state="OS: "+( platform.system()) +" " +(platform.release()) +" " +(platform.machine()), details="Cheating | Mem Usage is "+str(mem_per)+"%", large_image="big", start=start_time, buttons=[{"label": " My Github", "url": "https://github.com/Briiqn"}]))
-    button2 = customtkinter.CTkButton(master=root_tk, text="Disable RPC", command=button_func, bg_color="#404040")
+    button2 = customtkinter.CTkButton(master=root_tk, text="RPC is Enabled", command=button_func, bg_color="#192141", state=tkinter.DISABLED)
     button2.place(relx=0.85, rely=.75, anchor=tkinter.CENTER)
-    button3 = customtkinter.CTkButton(master=root_tk, text="RPC Enabled", command=button_func1, bg_color="#192141", state=tkinter.DISABLED)
-    button3.place(relx=.85, rely=.65, anchor=tkinter.CENTER)
-def button_func():
-    RPC.close()
-    button2 = customtkinter.CTkButton(master=root_tk, text="RPC is Disabled", command=button_func, bg_color="#192141", state=tkinter.DISABLED)
-    button2.place(relx=0.85, rely=.75, anchor=tkinter.CENTER)
-    button3 = customtkinter.CTkButton(master=root_tk, text="Enable RPC", command=button_func1, bg_color="#404040")
+    button3 = customtkinter.CTkButton(master=root_tk, text="Disable RPC", command=button_func1, bg_color="#404040")
     button3.place(relx=0.85, rely=.65, anchor=tkinter.CENTER)
-button2 = customtkinter.CTkButton(master=root_tk, text="Disable RPC", command=button_func, bg_color="#404040")
+button2 = customtkinter.CTkButton(master=root_tk, text="Enable RPC", command=button_func, bg_color="#404040")
 button2.place(relx=0.85, rely=.75, anchor=tkinter.CENTER)
 
 
@@ -192,12 +195,15 @@ class TuxClicker(Thread):
                 mixer.music.play()
                 mouse.release(Button.left)
                 mouse.click(Button.left)
-            sleep(delay * slider.get() / slider1.get() * random.uniform(1, 1.40099999999999999999999) * truerand.uniform(2, 2.5099999999999999) * wtfrand * random.triangular(.5, 2.5555555555555) / truerand.uniform(wtfrand, 2.099999999999999999) * random.uniform(wtfrand, wtfrand) / random.uniform(random.uniform(wtfrand, wtfrand), truerand.uniform(wtfrand, wtfrand)) / random.uniform(truerand.uniform(1, 1.1), random.uniform(1.2, 1.2)));
+            sleep(random.triangular(delay, delay) * slider.get() / slider1.get() * random.uniform(1, 1.40099999999999999999999) * truerand.uniform(2, 2.5099999999999999) * wtfrand * random.triangular(.5, 2.5555555555555) / truerand.uniform(wtfrand, 2.099999999999999999) * random.uniform(wtfrand, wtfrand) / random.uniform(random.uniform(wtfrand, wtfrand), truerand.uniform(wtfrand, wtfrand)) / random.uniform(truerand.uniform(1, 1.1), random.uniform(1.2, 1.3)) * 1.08 * timerandom * 4);
 
 
 def keypress(key):
     if key == KeyCode(char=entry.get()):
         TuxClicker.clicking = not TuxClicker.clicking
+
+
+
 
 TuxClicker().start()
 with Listener(on_press=keypress) as listener:
@@ -206,8 +212,6 @@ with Listener(on_press=keypress) as listener:
         print(TuxClicker())
         root_tk.protocol("WM_DELETE_WINDOW", on_closing)
         root_tk.mainloop()
-
-
 
 
 
