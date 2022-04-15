@@ -23,7 +23,7 @@ import emoji
 root_tk = tkinter.Tk()  # create the Tk window like you normally do
 root_tk.geometry("570x480")
 root_tk.resizable(width=False, height=False)
-root_tk.title("Tux Clicker Dev Build 3")
+root_tk.title("Tux Clicker Dev Build 3.1")
 MAIN_COLOR = "#404040"
 MAIN_COLOR_DARK  = "#192734"
 MAIN_HOVER = "#458577"
