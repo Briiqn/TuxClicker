@@ -1,0 +1,9 @@
+tk
+customtkinter
+random_number
+psutil
+pyautogui
+keyboard
+pynput
+pygame
+emoji
