@@ -1,3 +1,6 @@
+
+
+
 import tkinter
 import customtkinter
 import os
@@ -10,10 +13,10 @@ import time
 import random
 import platform
 import subprocess
-from pynput.mouse import Controller, Button
-from pynput.keyboard import KeyCode, Listener
 from threading import Thread
 from time import sleep
+from pynput.mouse import Controller, Button
+from pynput.keyboard import KeyCode, Listener
 from pypresence import Presence
 from pygame import mixer
 import emoji
@@ -28,12 +31,14 @@ MAIN_COLOR = "#404040"
 MAIN_COLOR_DARK  = "#192734"
 MAIN_HOVER = "#458577"
 customtkinter.set_appearance_mode("Dark") # Other: "Light", "System"
+kb = Controller()
 #______________________________________________-
 #STUFF FOR TESTING AND DELAYS
-timerandom = time.time() * 10 /100000000000
+timerandom = time.time() * 10  /random.uniform(99999999999.9, 100000000000)  / random.uniform(0.165904770, 0.166004770) * random.uniform(.159, .165) +1 -random.uniform(.0760000, .0779999)
 button = Button.left
 truerand = random.SystemRandom()
 delay =  random.uniform(truerand.uniform(random.uniform(.1, .11999999999), random.uniform(.11999999999, .11999999999)), .1199999)
+normdelay = .1
 # .1023658467387455
 epicdelay = random.uniform(random.uniform(.1, .1099999999), random.uniform(.1099999999, .10999999999))
 mouse = Controller()
@@ -46,6 +51,8 @@ client_id = '924367584307060746'
 RPC = Presence(client_id)
 heart = print(emoji.emojize(":heart:"))
 wtfrand = random.uniform(truerand.uniform(1, 2.099999999999999999), random.uniform(.99, 2.2999999999999999999999999999))
+
+
 #______________________________________________-
 """
 https://discordapp.com/developers/applications/924367584307060746/rich-presence/assets
@@ -80,10 +87,10 @@ label = customtkinter.CTkLabel(master=root_tk,
 label.place(relx=0.5, rely=0.55, anchor=tkinter.CENTER)
 slider1 = customtkinter.CTkSlider(master=root_tk,
                                  width=160,
-                                 height=16,
+                                 height=15.5,
                                  border_width=5.5,
-                                 from_=3.5,
-                                 to=28,
+                                 from_=1,
+                                 to=20,
                                  command=slider_event,
                                  bg_color="#404040")
 slider1.place(relx=0.5, rely=0.6, anchor=tkinter.CENTER)
@@ -100,10 +107,10 @@ label = customtkinter.CTkLabel(master=root_tk,
 label.place(relx=0.5, rely=0.35, anchor=tkinter.CENTER)
 slider = customtkinter.CTkSlider(master=root_tk,
                                  width=160,
-                                 height=16,
+                                 height=15.5,
                                  border_width=5.5,
-                                 from_=3.5,
-                                 to=28,
+                                 from_=2,
+                                 to=10,
                                  command=slider_event2,
                                  bg_color="#404040")
 slider.place(relx=0.5, rely=0.4, anchor=tkinter.CENTER)
@@ -163,7 +170,6 @@ text1 = entry1.get()
 
 
 
-
 def button_func1():
     RPC.close()
     button2 = customtkinter.CTkButton(master=root_tk, text="Enable RPC", command=button_func, bg_color="#404040")
@@ -180,6 +186,43 @@ def button_func():
     button3.place(relx=0.85, rely=.65, anchor=tkinter.CENTER)
 button2 = customtkinter.CTkButton(master=root_tk, text="Enable RPC", command=button_func, bg_color="#404040")
 button2.place(relx=0.85, rely=.75, anchor=tkinter.CENTER)
+def button_click_eventz():
+    dialog = customtkinter.CTkInputDialog(master=root_tk, text="Type in a number:", title="Tux Clicker Dev Build 3.1")
+    print("Number:", dialog.get_input())
+    print(dialog.get_input())
+    userinput = dialog.get_input()
+
+
+def rightclicky():
+    if entry1.get() == "1":
+        mouse.press(Button.right)
+        mouse.release(Button.right)
+    else:
+        print("waiting")
+labelf = customtkinter.CTkLabel(master=root_tk,
+                               text='BlockHit',
+                               width=150,
+                               height=25,
+                               corner_radius=0,
+                               fg_color="#282828")
+labelf.place(relx=0.1, rely=0.25, anchor=tkinter.CENTER)
+labele = customtkinter.CTkLabel(master=root_tk,
+                               text='Binding Key',
+                               width=150,
+                               height=25,
+                               corner_radius=0,
+                               fg_color="#282828")
+labele.place(relx=0.1, rely=0.15, anchor=tkinter.CENTER)
+
+labelh = customtkinter.CTkLabel(master=root_tk,
+                               text='use values [0 or 1]',
+                               width=150,
+                               height=25,
+                               corner_radius=0,
+                               fg_color="#282828")
+labelh.place(relx=0.1, rely=0.4, anchor=tkinter.CENTER)
+
+
 
 
 class TuxClicker(Thread):
@@ -189,20 +232,21 @@ class TuxClicker(Thread):
         while True:
 
             if TuxClicker.clicking:
+                rightclicky()
                 mouse.press(Button.left)
                 time.sleep(truerand.uniform(random.uniform(.0010, .0011), random.uniform(0.10111111111111111111, .109)))
                 mixer.music.load('default.wav')
                 mixer.music.play()
                 mouse.release(Button.left)
                 mouse.click(Button.left)
-            sleep(random.triangular(delay, delay) * slider.get() / slider1.get() * random.uniform(1, 1.40099999999999999999999) * truerand.uniform(2, 2.5099999999999999) * wtfrand * random.triangular(.5, 2.5555555555555) / truerand.uniform(wtfrand, 2.099999999999999999) * random.uniform(wtfrand, wtfrand) / random.uniform(random.uniform(wtfrand, wtfrand), truerand.uniform(wtfrand, wtfrand)) / random.uniform(truerand.uniform(1, 1.1), random.uniform(1.2, 1.3)) * 1.08 * timerandom * 4);
+            sleep(random.choice([random.triangular(delay, delay) * slider.get() / slider1.get() * random.uniform(.99999999999999999, 1.40099999999999999999999) * truerand.uniform(2, 2.5099999999999999) * wtfrand * random.triangular(.5555555555555, 2.5555555555555) / truerand.uniform(wtfrand, 2.099999999999999999) * random.uniform(wtfrand, wtfrand) / random.uniform(random.uniform(wtfrand, wtfrand), truerand.uniform(wtfrand, wtfrand)) / random.uniform(truerand.uniform(.999999999999999999999999999, 1.1), random.uniform(1.299999999999999999999, 1.3)) * timerandom / random.uniform(1.068, 1.07), normdelay * slider.get() / slider1.get() * .99 * 1.4 * 2.5 * 2.1 * 1.6 / 2.09 * 2.1 * 1.1 * 1.3 * 1.08 / 1.07 / 5]))
+
+
 
 
 def keypress(key):
     if key == KeyCode(char=entry.get()):
         TuxClicker.clicking = not TuxClicker.clicking
-
-
 
 
 TuxClicker().start()
